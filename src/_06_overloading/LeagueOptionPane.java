@@ -20,8 +20,7 @@ public class LeagueOptionPane {
 
 	JFrame frame = new JFrame();
 	JLabel label = new JLabel();
-	JTextField field = new JTextField();
-
+	
 	public void showMessageDialog(String message) {
 		// 1. Open example.png and make a GUI that looks like that
 		//    The message parameter is what we want to show on our pop-up
@@ -30,11 +29,9 @@ public class LeagueOptionPane {
 
 		label = new JLabel(loadImage("league.png"));
 
+		label.setText(message);		
+		
 		frame.add(label);
-
-		field.setText(message);
-
-		frame.add(field);
 
 		frame.pack();
 
@@ -59,11 +56,9 @@ public class LeagueOptionPane {
 
 		label = new JLabel(loadImage("league.png"));
 
+		label.setText(message);
+		
 		frame.add(label);
-
-		field.setText(message);
-
-		frame.add(field);
 
 		frame.pack();
 
@@ -87,11 +82,9 @@ public class LeagueOptionPane {
 
 		label = new JLabel(loadImage(image));
 
+		label.setText(message);
+		
 		frame.add(label);
-
-		field.setText(message);
-
-		frame.add(field);
 
 		frame.pack();
 

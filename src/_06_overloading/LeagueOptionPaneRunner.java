@@ -6,9 +6,9 @@ public class LeagueOptionPaneRunner {
 
 		lop.showMessageDialog("hello");
 
-		lop.showMessageDialog("hello", "LeagueOptionPane");
+		lop.showMessageDialog("hola", "LeagueOptionPane");
 
-		lop.showMessageDialog("hello", "leagueDark.png");
+		lop.showMessageDialog("bonjour", "cool title", "leagueDark.png");
 
 
 	}
