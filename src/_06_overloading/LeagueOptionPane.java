@@ -1,5 +1,6 @@
 package _06_overloading;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.io.IOException;
 
@@ -7,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /*
@@ -19,19 +21,21 @@ import javax.swing.JTextField;
 public class LeagueOptionPane {
 
 	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
 	JLabel label = new JLabel();
-	
+
 	public void showMessageDialog(String message) {
 		// 1. Open example.png and make a GUI that looks like that
 		//    The message parameter is what we want to show on our pop-up
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new FlowLayout());
 
 		label = new JLabel(loadImage("league.png"));
 
 		label.setText(message);		
-		
-		frame.add(label);
+
+		panel.add(label);
+
+		frame.add(panel);
 
 		frame.pack();
 
@@ -52,13 +56,14 @@ public class LeagueOptionPane {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle(title);
-		frame.setLayout(new FlowLayout());
 
 		label = new JLabel(loadImage("league.png"));
 
 		label.setText(message);
-		
-		frame.add(label);
+
+		panel.add(label);
+
+		frame.add(panel);
 
 		frame.pack();
 
@@ -74,7 +79,7 @@ public class LeagueOptionPane {
 	// 6. Create another showMessageDialog() method that lets us choose the Message, Title, and Image
 	//    3 String parameters (one for the message, one for the title, and one for the fileName)
 
-	public void showMessageDialog(String message, String title, String image) {
+	public JPanel showMessageDialog(String message, String title, String image) {
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle(title);
@@ -83,14 +88,19 @@ public class LeagueOptionPane {
 		label = new JLabel(loadImage(image));
 
 		label.setText(message);
-		
-		frame.add(label);
+
+		panel.add(label);
+
+		frame.add(panel);
 
 		frame.pack();
 
 		frame.setLocationRelativeTo(null);
 
 		frame.setVisible(true);
+
+		return panel;
+
 	}
 
 	// 7. Call this method in the Runner class
@@ -102,16 +112,46 @@ public class LeagueOptionPane {
 	//	1. Create another showMessageDialog() method that lets us choose the Message, Title, Image, and Background Color
 	//     3 String parameters (one for the message, one for the title, and one for the fileName)
 	//	   1 Color parameter for the backgroundColor
-	//			
+
+	public void showMessageDialog(String message, String title, String image, Color backgroundColor) {
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		panel = showMessageDialog(message, title, image);
+		
+		panel.add(label);
+		
+		panel.setBackground(backgroundColor);
+		
+		frame.add(panel);
+
+		frame.pack();
+
+		frame.setLocationRelativeTo(null);
+
+		frame.setBackground(backgroundColor);
+		
+		frame.setVisible(true);
+
+	}
+
 	//	2. Change the return type of the 3rd showMessageDialog() method(the one right above) to JPanel
 	//	   Make sure to return your panel at the end of that method
 	//	
+	//	done
+	//
 	//	3. Call the showMessageDialog() method you just modified in this method
 	//	   Set the method equal to a JPanel
 	//	
+	//	done
+	//
 	//	4. Set the background of your panel to the backgroundColor parameter
 	//
+	//	done
+	//
 	//	5. Call this method in the Runner class
+	//
+	//	done
 	//
 	// WHY DID WE DO THIS? - because we were able to overload this method by calling one of the other methods inside of it
 
